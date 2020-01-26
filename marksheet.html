@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    input{
+        border: black 1px solid;
+        border-radius: 5px;
+        font-size: larger;
+        text-align: center;
+        display:block;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 40px;
+    }
+    button{
+        background-image: linear-gradient(20deg, lightgreen, lightblue);
+        border: black 1px solid;
+        border-radius: 5px;
+        width: 200px;
+        height: 40px;
+        font-size: larger;
+        text-align: center;
+        font-weight: 700;
+        color: black;
+    }
+    p{
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+    }
+    </style>
+
+    <script>
+    function marksheet(){
+        var en =parseInt(document.getElementById('eng').value);
+        var mt =parseInt(document.getElementById('mth').value);        
+        var py =parseInt(document.getElementById('phy').value);
+        var cm =parseInt(document.getElementById('com').value);
+        var ud =parseInt(document.getElementById('ur').value);        
+        var to =parseInt(document.getElementById('tm').value);
+        var om = en+mt+py+cm+ud;
+        var per = om/to*100;
+        document.getElementById('obtm').innerHTML = "<b>" +"Obtained Marks =" + "</b>" + om + "Marks";
+        document.getElementById('pers').innerHTML ="<b>" + "Percentage ="+ "</b>"  + per + "%";
+        if (per >= 80) {
+            document.getElementById('gra').innerHTML = "A+: "+"<b>" + "Grade"+ "</b>";
+        }
+        else if (per >= 70) {
+            document.getElementById('gra').innerHTML = "A: ";+"<b>" + "Grade"+ "</b>"
+        }
+        else if (per >= 60) {
+            document.getElementById('gra').innerHTML = "B: "+"<b>" + "Grade"+ "</b>";
+        }
+        else if (per >= 50) {
+            document.getElementById('gra').innerHTML ="C: "+"<b>" + "Grade"+ "</b>";
+        }
+        else if (per >= 40) {
+            document.getElementById('gra').innerHTML = "D: "+"<b>" + "Grade"+ "</b>";
+        }
+        else if (per >= 33) {
+            document.getElementById('gra').innerHTML = "E: "+"<b>" + "Grade"+ "</b>";
+        }
+        else if (per <= 33) {
+            document.getElementById('gra').innerHTML ="<b>" + "You are Failed"+ "</b>";
+        }
+
+
+    }
+    </script>
+</head>
+<body>
+    
+    <input type="number" id="eng" placeholder="English">
+    <input type="number" id="mth" placeholder="Math"> 
+    <input type="number" id="phy" placeholder="Physics"> 
+    <input type="number" id="com" placeholder="Computer">
+    <input type="number" id="ur" placeholder="Urdu">
+    <input type="number" id="tm" placeholder="Total Marks">
+    <p id="obtm"></p id="obtm">
+    <p id="pers"></p>
+    <p id="gra"></p>
+    <button onclick="marksheet()">Calculate</button>
+</body>
+</html>
